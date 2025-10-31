@@ -1,6 +1,16 @@
 version: '3.8'
 
 services:
+  db:
+    build:
+       context: ./Database
+       dockerfile: Dockerfile
+     container_name: backend-service
+     environment:
+        MYSQL_ROOT_PASSWORD: 1234
+        MYSQL_DATABASE: studentapp
+      ports:
+        - "3306:3306"
   backend:
     build:
       context: ./Backend
